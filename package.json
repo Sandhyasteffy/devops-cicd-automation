@@ -18,5 +18,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.3.1"
   }
 }
