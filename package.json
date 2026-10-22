@@ -1,0 +1,22 @@
+{
+  "name": "devops-cicd-automation",
+  "version": "1.0.0",
+  "description": "Automated Node.js CI/CD pipeline using GitHub Actions and Docker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "check": "node --check app.js && node --check server.js"
+  },
+  "keywords": [
+    "devops",
+    "cicd",
+    "github-actions",
+    "docker",
+    "nodejs"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
