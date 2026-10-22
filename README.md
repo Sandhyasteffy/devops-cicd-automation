@@ -17,22 +17,44 @@ This project demonstrates a Continuous Integration and Continuous Deployment (CI
 - Node.js built-in test runner
 - Supertest
 
+
 ## Architecture
 
-```mermaid
-flowchart TD
-    A[Developer pushes code] --> B[GitHub Repository]
-    B --> C[GitHub Actions Workflow]
-    C --> D[Install Dependencies]
-    D --> E[JavaScript Syntax Check]
-    E --> F[Run Automated Tests]
-    F -->|Tests pass| G[Build Docker Image]
-    G --> H[Authenticate with Docker Hub]
-    H --> I[Push Docker Image]
-    I --> J[latest tag]
-    I --> K[Commit-specific SHA tag]
-    F -->|Tests fail| L[Stop Pipeline]
+```text
+Developer
+   |
+   v
+GitHub Repository
+   |
+   v
+GitHub Actions Workflow
+   |
+   v
+Install Dependencies
+   |
+   v
+JavaScript Syntax Check
+   |
+   v
+Run Automated Tests
+   |
+   +---- Tests fail ----> Stop Pipeline
+   |
+   +---- Tests pass
+             |
+             v
+       Build Docker Image
+             |
+             v
+       Authenticate with Docker Hub
+             |
+             v
+       Push Docker Image
+          /       \
+         v         v
+      latest     sha-commit
 ```
+
 
 ## Application Endpoints
 
